@@ -1,0 +1,121 @@
+<!doctypehtml>
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <!-- Stylesheet -->
+        <link href="/styles.css" rel="stylesheet"/>
+
+       <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="/scripts.js"></script>
+        <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
+
+</head>
+<body>
+<div id="authorize-div" style="display: none">
+      <span>Authorize access to Google Sheets API</span>
+      <!--Button for the user to click to initiate auth sequence -->
+      <button id="authorize-button" onclick="handleAuthClick(event)">
+        Authorize
+      </button>
+    </div>
+
+    <div class="row title">
+        <h1>Self-Inking Stamp Inventory</h1>
+    </div>
+    
+    <div class="row">
+        <h2 class="header">Current Inventory</h2>
+    </div>
+    
+    <div class="row status">
+        <div class="col-xs-12 col-md-12">
+            <table class="table table-bordered stamps">
+                <thead>
+                    <tr class="tblnames">
+                        <th>Size</th>
+                        <th>Die Box Qty.</th>
+                        <th>Mount Qty.</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>PSI 1444</th>
+                        <td id="db1444"></td>
+                        <td id="m1444"> </td>
+                    </tr>
+                    <tr>
+                        <th>PSI 1854</th>
+                        <td id="db1854"> </td>
+                        <td id="m1854"> </td>
+                    </tr>
+                    <tr>
+                        <th>PSI 2264</th>
+                        <td id="db2264"> </td>
+                        <td id="m2264"> </td>
+                    </tr>
+                    <tr>
+                        <th>PSI 2273</th>
+                        <td id="db2273"> </td>
+                        <td id="m2273"> </td>
+                    </tr>
+                    <tr>
+                        <th>PSI 3679</th>
+                        <td id="db3679"> </td>
+                        <td id="m3679"> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="col-xs-6 col-md-6">
+            <table class="table table-bordered extras">
+                <thead>
+                    <tr class="tblnames">
+                        <th>Supplies</th>
+                        <th>Qty.</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Vellum</th>
+                        <td id="vellum"> </td>
+                    </tr>
+                    <tr>
+                        <th>Transparency</th>
+                        <td id="trans"> </td>
+                    </tr>
+                    <tr>
+                        <th>Gloves</th>
+                        <td id="gloves"> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="col-xs-6 col-md-6">
+            <table class="table table-bordered inks">
+                <tr class="tblnames">
+                    <th>Inks</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <th>Black</th>
+                    <td id="black"> </td>
+                </tr>
+                <tr>
+                    <th>Red</th>
+                    <td id="red"> </td>
+                </tr>
+                <tr>
+                    <th>Blue</th>
+                    <td id="blue"> </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    </body>
+    </html>
