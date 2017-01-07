@@ -1,5 +1,4 @@
 var gulp = require('gulp');
-//var connect = require('gulp-connect');
 var browserSync = require('browser-sync');
 
 gulp.task('browser-sync', function() {
@@ -10,28 +9,18 @@ gulp.task('browser-sync', function() {
     });
 });
 
-/*gulp.task('connect', function() {
-    connect.server({
-        root: 'testing',
-        livereload: true
-    });
-});*/
-
 gulp.task('html', function() {
     gulp.src('./*.html')
-    //.pipe(connect.reload());
     .pipe(browserSync.reload({stream:true}))
 });
 
 gulp.task('css', function() {
     gulp.src('./*.css')
-    //.pipe(connect.reload());
     .pipe(browserSync.reload({stream:true}))
 });
 
 gulp.task('js', function() {
     gulp.src('./*.js')
-    //.pipe(connect.reload());
     .pipe(browserSync.reload({stream:true}))
 });
 
@@ -42,5 +31,4 @@ gulp.task('watch', function() {
     
 });
 
-//gulp.task('start', ['connect', 'watch']);
 gulp.task('start', ['browser-sync', 'watch']);

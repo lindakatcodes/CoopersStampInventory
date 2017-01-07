@@ -1,11 +1,15 @@
 {
-  "name": "stamptracking",
+  "name": "StampInventory",
   "version": "1.0.0",
-  "description": "Stamp tracking site for Coopers",
+  "description": "Stamp tracking site for Cooper's",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+  "type": "git",
+  "url": "https://github.com/lindakatcodes/StampInventory.git"
+},
   "author": "Linda Thompson",
   "license": "ISC",
   "devDependencies": {
