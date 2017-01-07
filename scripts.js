@@ -1,3 +1,7 @@
+
+//necessary globals
+var stamps = [];
+
 //google authorization schtuff
 var CLIENT_ID = '894792189641-nchnp5fsr776ds0r0vbpojgbnmfvffb9.apps.googleusercontent.com';
 
@@ -62,9 +66,12 @@ function getData() {
                     var name = range.values[i][0];
                     var qty = range.values[i][1];
                     document.getElementById(name).innerHTML = qty;
+                    stamps.push([name, qty]);
             }
         }
     }, function (response) {
         console.log('Error: ' + response.result.error.message);
     });
 }
+
+

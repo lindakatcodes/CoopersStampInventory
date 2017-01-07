@@ -38,13 +38,6 @@ td
 {
     text-align: center;
     vertical-align: center;
+    font-size: 14px;
     padding: 5px;
 }
-
-hr
-{
-    background-color: #0000ff;
-    border-color: #0000ff;
-    height: 2px;
-}
-
