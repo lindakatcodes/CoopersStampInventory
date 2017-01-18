@@ -7,7 +7,7 @@
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         <!-- Stylesheet -->
-        <link href="/styles.css" type="text/css" rel="stylesheet"/>
+        <link href="./styles.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 <div id="authorize-div">
@@ -113,12 +113,18 @@
             </div>
         </div>
         
+        <div class="btnFlex">
+            <button class="btn btn-lg btn-success btnFlexChild" id="usedToggle" onclick="toggleFormOn()">Log Used Supplies</button>
+            <button class="btn btn-lg btn-info btnFlexChild" id="stockToggle">Log Supply Stock</button>
+        </div>
+        
         <div class="used">
             <form class="form-inline" id="addUsed">
-                <div id="item" class="row">
+                <div id="item" class="row itemGroup">
                     <div class="form-group col-xs-2 col-xs-offset-2">
                         <label class="sr-only" for="selection">Select Item</label>
                         <select class="form-control input-lg">
+                            <option>Choose:</option>
                             <option>db1444</option>
                             <option>db1854</option>
                             <option>db2264</option>
@@ -143,18 +149,23 @@
                       <button type="button" class="btn btn-link btn-lg addBtn" onclick="addItem('item')">+ Add an Item</button>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-3 col-xs-offset-8">
-                  <button type="submit" class="btn btn-lg btn-primary">Finished!</button>
+                <div class="row">
+                    <div class="col-xs-3 col-xs-offset-8">
+                      <button type="submit" class="btn btn-lg btn-primary">Finished!</button>
+                    </div>
                 </div>
             </form>
-        </div>
-    </div>
+        </div> <!--end of used div -->
+        
+
+        
+        
+        
+    </div> <!--closing container tag -->
     
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script src="/scripts.js" type="text/javascript"></script>
+    <script src="./scripts.js" type="text/javascript"></script>
     <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
     </body>
     </html>

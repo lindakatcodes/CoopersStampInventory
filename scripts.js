@@ -57,6 +57,7 @@ function loadSheetsApi() {
     gapi.client.load(discoveryUrl).then(getData);
 }
 
+//actually get data from sheet and fill into display
 function getData() {
     gapi.client.sheets.spreadsheets.values.get({
         spreadsheetId: '1qnHMLUQRRWyQMMLWDyuKfRHcGVWMJzhNkorTnmzSbjk',
@@ -76,9 +77,15 @@ function getData() {
     });
 }
 
+//dynamically add rows to forms for multiple entries
 function addItem(divName){
     var main = document.getElementById(divName);
     var clone = main.cloneNode(true);
     document.getElementById("addUsed").appendChild(clone);
+}
+
+function toggleFormOn() {
+        $('#usedToggle').toggle("slow");
+        $('.used').toggle("slow");
 }
 

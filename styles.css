@@ -45,3 +45,17 @@ td
 .itemGroup {
   padding: 5px;
 }
+
+.used {
+    display: none;
+    border: 2px solid darkgrey;
+}
+
+.btnFlex {
+    display: flex;
+    justify-content: center;
+}
+
+.btnFlexChild {
+    margin: 0 auto;
+}

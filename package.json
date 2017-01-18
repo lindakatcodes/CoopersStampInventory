@@ -13,8 +13,7 @@
   "author": "Linda Thompson",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.14.3",
-    "gulp": "^3.9.1"
+    
   },
   "dependencies": {
     "google-auth-library": "^0.9.8",
