@@ -1,3 +1,5 @@
+/* global $ */
+/* global gapi */
 
 //necessary globals
 var stamps = [];
@@ -62,7 +64,7 @@ function getData() {
     }).then(function (response) {
         var range = response.result;
         if (range.values.length > 0) {
-            for (i = 0; i < range.values.length; i++) {
+            for (var i = 0; i < range.values.length; i++) {
                     var name = range.values[i][0];
                     var qty = range.values[i][1];
                     document.getElementById(name).innerHTML = qty;
@@ -74,4 +76,9 @@ function getData() {
     });
 }
 
+function addItem(divName){
+    var main = document.getElementById(divName);
+    var clone = main.cloneNode(true);
+    document.getElementById("addUsed").appendChild(clone);
+}
 

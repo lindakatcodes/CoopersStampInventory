@@ -21,7 +21,7 @@ h2
 .tblnames th
 {
     text-align: center;
-    vertical-align: center;
+    vertical-align: middle;
     font-size: 20px;
     padding: 5px;
 }
@@ -30,14 +30,18 @@ th
 {
     padding: 5px;
     text-align: center;
-    vertical-align: center;
-    font-size: 14px;
+    vertical-align: middle;
+    font-size: 16px;
 }
 
 td
 {
     text-align: center;
-    vertical-align: center;
-    font-size: 14px;
+    vertical-align: middle;
+    font-size: 18px;
     padding: 5px;
+}
+
+.itemGroup {
+  padding: 5px;
 }
