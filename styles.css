@@ -49,6 +49,26 @@ td
 .used {
     display: none;
     border: 2px solid darkgrey;
+    padding: 4px;
+}
+
+.stock {
+    display: none;
+    border: 2px solid darkgrey;
+    padding: 4px;
+}
+
+.spacer {
+    padding-bottom: 4px;
+    padding-top: 4px;
+}
+
+.buttons {
+    padding: 3px;
+}
+
+.rmv {
+    margin-top: 4px;
 }
 
 .btnFlex {

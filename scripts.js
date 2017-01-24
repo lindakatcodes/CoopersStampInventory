@@ -76,16 +76,37 @@ function getData() {
         console.log('Error: ' + response.result.error.message);
     });
 }
-
+/*
 //dynamically add rows to forms for multiple entries
 function addItem(divName){
     var main = document.getElementById(divName);
     var clone = main.cloneNode(true);
     document.getElementById("addUsed").appendChild(clone);
 }
+*/
+function addItem(type) {
+    if (type === "U") {
+        $("#itemU").append('<div class="spacer"></div><div class="row"><div class="form-group col-xs-6 col-md-2 col-md-offset-4"><label class="sr-only">Select Item</label><select class="form-control input-lg"><option>Choose:</option><option>db1444</option><option>db1854</option><option>db2264</option><option>db2273</option><option>db3679</option><option>m1444</option><option>m1854</option><option>m2264</option><option>m2273</option><option>m3679</option><option>vellum</option><option>trans</option><option>gloves</option></select></div><div class="form-group col-xs-4 col-md-2"><label class="sr-only">Quantity Used</label><input type="number" class="form-control input-lg" placeholder="Qty" value=""></div><div class="col-xs-1 rmv"><button type="button" class="btn btn-danger"><i class="fa fa-lg fa-times"></button></div></div>');
+        remove();
+    } else if (type === "S") {
+       $("#itemS").append('<div class="spacer"></div><div class="row"><div class="form-group col-xs-6 col-md-2 col-md-offset-4"><label class="sr-only">Select Item</label><select class="form-control input-lg"><option>Choose:</option><option>db1444</option><option>db1854</option><option>db2264</option><option>db2273</option><option>db3679</option><option>m1444</option><option>m1854</option><option>m2264</option><option>m2273</option><option>m3679</option><option>vellum</option><option>trans</option><option>gloves</option></select></div><div class="form-group col-xs-4 col-md-2"><label class="sr-only">Quantity Used</label><input type="number" class="form-control input-lg" placeholder="Qty" value=""></div><div class="col-xs-1 rmv"><button type="button" class="btn btn-danger"><i class="fa fa-lg fa-times"></button></div></div>');
+        remove(); 
+    }
+}
 
-function toggleFormOn() {
+var remove = function() {
+    $(".rmv").click(function() {
+      $(this).parent().remove();
+    });
+};
+
+function toggleFormOn(type) {
         $('#usedToggle').toggle("slow");
-        $('.used').toggle("slow");
+        $('#stockToggle').toggle("slow");
+        if (type === "U") {
+            $('.used').toggle("slow");
+        } else if (type === "S") {
+            $('.stock').toggle("slow");
+        }
 }
 
