@@ -3,7 +3,7 @@
 
 //necessary globals
 var stamps = [];
-var counter = 1;
+var counter = 0;
 
 //google authorization schtuff
 var CLIENT_ID = '894792189641-nchnp5fsr776ds0r0vbpojgbnmfvffb9.apps.googleusercontent.com';
@@ -87,12 +87,12 @@ function addItem(divName){
 */
 function addItem(type) {
     if (type === "U") {
-        $("#itemU").append('<div class="spacer"></div><div class="row"><div class="col-xs-6 col-xs-offset-0 col-md-2 col-md-offset-3"><label class="sr-only">Select Item</label><select class="form-control input-lg" name="uselect[' + counter + ']"><option>Choose:</option><option>db1444</option><option>db1854</option><option>db2264</option><option>db2273</option><option>db3679</option><option>m1444</option><option>m1854</option><option>m2264</option><option>m2273</option><option>m3679</option><option>vellum</option><option>trans</option><option>gloves</option></select></div><div class="col-xs-4 col-md-1"><label class="sr-only">Quantity Used</label><input type="number" class="form-control input-lg" name="uqty[' + counter  + ']" placeholder="Qty" value=""></div><div class="col-xs-1 col-xs-offset-0 col-md-2 col-md-offset-2 rmv"><button type="button" class="btn btn-danger"><i class="fa fa-lg fa-times"></button></div></div>');
         counter++;
+        $("#itemU").append('<div class="spacer"></div><div class="row"><div class="col-xs-6 col-xs-offset-0 col-md-2 col-md-offset-3"><label class="sr-only">Select Item</label><select class="form-control input-lg" name="uselect[' + counter + ']"><option>Choose:</option><option>db1444</option><option>db1854</option><option>db2264</option><option>db2273</option><option>db3679</option><option>m1444</option><option>m1854</option><option>m2264</option><option>m2273</option><option>m3679</option><option>vellum</option><option>trans</option><option>gloves</option></select></div><div class="col-xs-4 col-md-1"><label class="sr-only">Quantity Used</label><input type="number" class="form-control input-lg" name="uqty[' + counter  + ']" placeholder="Qty" value=""></div><div class="col-xs-1 col-xs-offset-0 col-md-2 col-md-offset-2 rmv"><button type="button" class="btn btn-danger"><i class="fa fa-lg fa-times"></button></div></div>');
         remove();
     } else if (type === "S") {
+        counter++;
         $("#itemS").append('<div class="spacer"></div><div class="row"><div class="col-xs-6 col-xs-offset-0 col-md-2 col-md-offset-3"><label class="sr-only">Select Item</label><select class="form-control input-lg"name="sselect[' + counter + ']"><option>Choose:</option><option>db1444</option><option>db1854</option><option>db2264</option><option>db2273</option><option>db3679</option><option>m1444</option><option>m1854</option><option>m2264</option><option>m2273</option><option>m3679</option><option>vellum</option><option>trans</option><option>gloves</option></select></div><div class="col-xs-4 col-md-1"><label class="sr-only">Quantity Used</label><input type="number" class="form-control input-lg" name="sqty[' + counter + ']" placeholder="Qty" value=""></div><div class="col-xs-1 col-xs-offset-0 col-md-2  col-md-offset-2 rmv"><button type="button" class="btn btn-danger"><i class="fa fa-lg fa-times"></button></div></div>');
-        counter++; 
         remove(); 
     }
 }
@@ -102,7 +102,7 @@ var remove = function() {
         $(this).parent().remove();
         counter--;
         if (counter < 1) {
-            counter = 1;
+            counter = 0;
         }
     });
 };
@@ -122,17 +122,19 @@ function dataSubmit(type) {
         for (var a = 0; a < counter; a++) {
             var select = $("addUsed").uselect[counter].options[Item].text;
             var spot = stamps.indexOf(select);
-            stamps[spot][1] -= $("addUsed").uqty[counter].value;
+            var qty = $("addUsed").uqty[counter].value;
+            stamps[spot][1] = stamps[spot][1] - qty;
         }
-        counter = 1;
-        alert(stamps);
+        counter = 0;
+        console.log(stamps);
     } else if (type === "stock") {
         for (var a = 0; a < counter; a++) {
             var select = $("stockUsed").sselect[counter].options[Item].text;
             var spot = stamps.indexOf(select);
-            stamps[spot][1] += $("stockUsed").sqty[counter].value;
+            var qty = $("stockUsed").sqty[counter].value;
+            stamps[spot][1] = stamps[spot][1] + qty;
         }
-        counter = 1;
-        alert(stamps);
+        counter = 0;
+        console.log(stamps);
     }
 }
