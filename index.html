@@ -120,20 +120,20 @@
         </div>
         
         <div class="used">
-            <form class="form-inline" id="addUsed">
+            <form class="form-inline" id="addUsed" onsubmit="return dataSubmit('used')">
                 <div class="row buttons">
-                    <div class="col-xs-5 col-md-2 col-md-offset-4">
+                    <div class="col-xs-5 col-xs-offset-0 col-md-2 col-md-offset-3">
                       <button type="button" class="btn btn-success btn-lg addBtn" onclick="addItem('U')">+ Add an Item</button>
                     </div>
-                    <div class="col-xs-4 col-md-2 col-xs-offset-1">
+                    <div class="col-xs-4 col-xs-offset-1 col-md-2 col-md-offset-0">
                       <button type="submit" class="btn btn-lg btn-primary">Finished!</button>
                     </div>
                 </div>
                 <div id="itemU" class="itemGroup">
                     <div class="row">
-                    <div class="form-group col-xs-6 col-md-2 col-md-offset-4">
+                    <div class="col-xs-6 col-xs-offset-0 col-md-2 col-md-offset-3">
                         <label class="sr-only" for="selection">Select Item</label>
-                        <select class="form-control input-lg">
+                        <select class="form-control input-lg" name="uselect[0]">
                             <option>Choose:</option>
                             <option>db1444</option>
                             <option>db1854</option>
@@ -150,9 +150,9 @@
                             <option>gloves</option>
                         </select>
                     </div>
-                    <div class="form-group col-xs-4 col-md-2">
+                    <div class="col-xs-4 col-md-1">
                         <label class="sr-only" for="qtyUsed">Quantity Used</label>
-                        <input type="number" class="form-control input-lg" placeholder="Qty" value="">
+                        <input type="number" class="form-control input-lg" name="uqty[0]" placeholder="Qty" value="">
                     </div>
                     </div>
                 </div>
@@ -160,20 +160,20 @@
         </div> <!--end of used div -->
         
         <div class="stock">
-            <form class="form-inline" id="stockUsed">
+            <form class="form-inline" id="stockUsed" onsubmit="return dataSubmit('stock')">
                 <div class="row buttons">
-                    <div class="col-xs-5 col-md-2 col-md-offset-4">
+                    <div class="col-xs-5 col-xs-offset-0 col-md-2 col-md-offset-3">
                       <button type="button" class="btn btn-success btn-lg addBtn" onclick="addItem('S')">+ Add an Item</button>
                     </div>
-                    <div class="col-xs-4 col-md-2 col-xs-offset-1">
+                    <div class="col-xs-4 col-xs-offset-1 col-md-2 col-md-offset-0">
                       <button type="submit" class="btn btn-lg btn-primary">Finished!</button>
                     </div>
                 </div>
                 <div id="itemS" class="itemGroup">
                     <div class="row">
-                    <div class="form-group col-xs-6 col-md-2 col-md-offset-4">
+                    <div class="col-xs-6 col-xs-offset-0 col-md-2 col-md-offset-3">
                         <label class="sr-only" for="selection">Select Item</label>
-                        <select class="form-control input-lg">
+                        <select class="form-control input-lg" name="sselect[0]">
                             <option>Choose:</option>
                             <option>db1444</option>
                             <option>db1854</option>
@@ -190,9 +190,9 @@
                             <option>gloves</option>
                         </select>
                     </div>
-                    <div class="form-group col-xs-4 col-md-2">
+                    <div class="col-xs-4 col-md-1">
                         <label class="sr-only" for="qtyUsed">Quantity Used</label>
-                        <input type="number" class="form-control input-lg" placeholder="Qty" value="">
+                        <input type="number" class="form-control input-lg" name="sqty[0]" placeholder="Qty" value="">
                     </div>
                     </div>
                 </div>
