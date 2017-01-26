@@ -118,8 +118,7 @@ function toggleFormOn(type) {
         }
 }
 
-$("#addUsed").submit(function (event) {
-    event.preventDefault();
+$("#addUsed").submit(function () {
     var values = $(this).serializeArray();
     var len = values.length;
     for (var a = 0; a < len; a++) {
@@ -129,30 +128,26 @@ $("#addUsed").submit(function (event) {
             return ele[0] === name;
         });
         var curr = stamps[spot];
-        var num = curr[1] - qtyused;
+        var num = Number(curr[1]) - Number(qtyused);
         stamps.splice(spot, 1, [name, num]);
         console.log(name, qtyused, spot, stamps[spot], stamps);
         a++;
     }
 });
-/*
-    if (type === "used") {
-        for (var a = 0; a < counter; a++) {
-            var select = $("addUsed").uselect[counter].options[Item].text;
-            var spot = stamps.indexOf(select);
-            var qty = $("addUsed").uqty[counter].value;
-            stamps[spot][1] = stamps[spot][1] - qty;
-        }
-        counter = 0;
-        console.log("New array: " + stamps);
-    } else if (type === "stock") {
-        for (var a = 0; a < counter; a++) {
-            var select = $("stockUsed").sselect[counter].options[Item].text;
-            var spot = stamps.indexOf(select);
-            var qty = $("stockUsed").sqty[counter].value;
-            stamps[spot][1] = stamps[spot][1] + qty;
-        }
-        counter = 0;
-        console.log("New array: " + stamps);
+
+$("#stockUsed").submit(function () {
+    var values = $(this).serializeArray();
+    var len = values.length;
+    for (var a = 0; a < len; a++) {
+        var name = values[a].value;
+        var qtyused = values[a + 1].value;
+        var spot = stamps.findIndex(function(ele) {
+            return ele[0] === name;
+        });
+        var curr = stamps[spot];
+        var num = Number(curr[1]) + Number(qtyused);
+        stamps.splice(spot, 1, [name, num]);
+        console.log(name, qtyused, spot, stamps[spot], stamps);
+        a++;
     }
-}*/
+});
