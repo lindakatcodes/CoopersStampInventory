@@ -67,15 +67,16 @@ function getData() {
         var range = response.result;
         if (range.values.length > 0) {
             for (var i = 0; i < range.values.length; i++) {
-                    var name = range.values[i][0];
+                var name = range.values[i][0];
                     var qty = range.values[i][1];
                     document.getElementById(name).innerHTML = qty;
-                    stamps.push([name, qty]);
+                    stamps.push( [name , qty ] );
             }
         }
+        console.log("Starting array: " + stamps);
     }, function (response) {
         console.log('Error: ' + response.result.error.message);
-    });
+        });
 }
 /*
 //dynamically add rows to forms for multiple entries
@@ -117,7 +118,19 @@ function toggleFormOn(type) {
         }
 }
 
-function dataSubmit(type) {
+$("#addUsed").submit(function (event) {
+    event.preventDefault();
+    var values = $(this).serializeArray();
+    console.log(values);
+    for (var a = 0; a <= counter; a++) {
+        var name = values[a].value;
+        var qtyused = values[a + 1].value;
+        var spot = stamps.indexOf(name);
+
+        console.log(name, qtyused, spot);
+    }
+});
+/*
     if (type === "used") {
         for (var a = 0; a < counter; a++) {
             var select = $("addUsed").uselect[counter].options[Item].text;
@@ -126,7 +139,7 @@ function dataSubmit(type) {
             stamps[spot][1] = stamps[spot][1] - qty;
         }
         counter = 0;
-        console.log(stamps);
+        console.log("New array: " + stamps);
     } else if (type === "stock") {
         for (var a = 0; a < counter; a++) {
             var select = $("stockUsed").sselect[counter].options[Item].text;
@@ -135,6 +148,6 @@ function dataSubmit(type) {
             stamps[spot][1] = stamps[spot][1] + qty;
         }
         counter = 0;
-        console.log(stamps);
+        console.log("New array: " + stamps);
     }
-}
+}*/

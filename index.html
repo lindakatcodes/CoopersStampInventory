@@ -120,7 +120,7 @@
         </div>
         
         <div class="used">
-            <form class="form-inline" id="addUsed" onsubmit="return dataSubmit('used'); return false">
+            <form class="form-inline" id="addUsed">
                 <div class="row buttons">
                     <div class="col-xs-5 col-xs-offset-0 col-md-2 col-md-offset-3">
                       <button type="button" class="btn btn-success btn-lg addBtn" onclick="addItem('U')">+ Add an Item</button>
@@ -160,7 +160,7 @@
         </div> <!--end of used div -->
         
         <div class="stock">
-            <form class="form-inline" id="stockUsed" onsubmit="return dataSubmit('stock'); return false">
+            <form class="form-inline" id="stockUsed" onsubmit="dataSubmit('stock')">
                 <div class="row buttons">
                     <div class="col-xs-5 col-xs-offset-0 col-md-2 col-md-offset-3">
                       <button type="button" class="btn btn-success btn-lg addBtn" onclick="addItem('S')">+ Add an Item</button>
