@@ -73,19 +73,11 @@ function getData() {
                     stamps.push( [name , qty] );
             }
         }
-        console.log("Starting array: " + stamps);
     }, function (response) {
         console.log('Error: ' + response.result.error.message);
         });
 }
-/*
-//dynamically add rows to forms for multiple entries
-function addItem(divName){
-    var main = document.getElementById(divName);
-    var clone = main.cloneNode(true);
-    document.getElementById("addUsed").appendChild(clone);
-}
-*/
+//When add item button is clicked, add a row onto the form
 function addItem(type) {
     if (type === "U") {
         counter++;
@@ -98,6 +90,7 @@ function addItem(type) {
     }
 }
 
+//if remove is clicked, remove that line
 var remove = function() {
     $(".rmv").click(function() {
         $(this).parent().remove();
@@ -108,6 +101,7 @@ var remove = function() {
     });
 };
 
+//when used/stock buttons are clicked, hide buttons and display correct form
 function toggleFormOn(type) {
         $('#usedToggle').toggle("slow");
         $('#stockToggle').toggle("slow");
@@ -118,6 +112,7 @@ function toggleFormOn(type) {
         }
 }
 
+//functionality for counting used items
 $("#addUsed").submit(function () {
     var values = $(this).serializeArray();
     var len = values.length;
@@ -133,8 +128,10 @@ $("#addUsed").submit(function () {
         console.log(name, qtyused, spot, stamps[spot], stamps);
         a++;
     }
+    update();
 });
 
+//functionality for counting stocked items
 $("#stockUsed").submit(function () {
     var values = $(this).serializeArray();
     var len = values.length;
@@ -150,4 +147,17 @@ $("#stockUsed").submit(function () {
         console.log(name, qtyused, spot, stamps[spot], stamps);
         a++;
     }
+    update();
 });
+
+//function to update values and write to sheet
+function update() {
+    
+    gapi.client.sheets.spreadsheets.values.update({
+        spreadsheetId: '1qnHMLUQRRWyQMMLWDyuKfRHcGVWMJzhNkorTnmzSbjk',
+        range: 'forSite!A2:B14',
+        body: stamps
+    }).execute();
+    
+    
+}
