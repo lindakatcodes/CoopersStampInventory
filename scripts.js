@@ -70,7 +70,7 @@ function getData() {
                 var name = range.values[i][0];
                     var qty = range.values[i][1];
                     document.getElementById(name).innerHTML = qty;
-                    stamps.push( [name , qty ] );
+                    stamps.push( [name , qty] );
             }
         }
         console.log("Starting array: " + stamps);
@@ -121,13 +121,18 @@ function toggleFormOn(type) {
 $("#addUsed").submit(function (event) {
     event.preventDefault();
     var values = $(this).serializeArray();
-    console.log(values);
-    for (var a = 0; a <= counter; a++) {
+    var len = values.length;
+    for (var a = 0; a < len; a++) {
         var name = values[a].value;
         var qtyused = values[a + 1].value;
-        var spot = stamps.indexOf(name);
-
-        console.log(name, qtyused, spot);
+        var spot = stamps.findIndex(function(ele) {
+            return ele[0] === name;
+        });
+        var curr = stamps[spot];
+        var num = curr[1] - qtyused;
+        stamps.splice(spot, 1, [name, num]);
+        console.log(name, qtyused, spot, stamps[spot], stamps);
+        a++;
     }
 });
 /*
