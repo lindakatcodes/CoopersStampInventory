@@ -77,6 +77,7 @@ function getData() {
         console.log('Error: ' + response.result.error.message);
         });
 }
+
 //When add item button is clicked, add a row onto the form
 function addItem(type) {
     if (type === "U") {
@@ -113,7 +114,8 @@ function toggleFormOn(type) {
 }
 
 //functionality for counting used items
-$("#addUsed").submit(function () {
+$("#addUsed").submit(function (event) {
+    event.preventDefault();
     var values = $(this).serializeArray();
     var len = values.length;
     for (var a = 0; a < len; a++) {
@@ -132,7 +134,8 @@ $("#addUsed").submit(function () {
 });
 
 //functionality for counting stocked items
-$("#stockUsed").submit(function () {
+$("#stockUsed").submit(function (event) {
+    event.preventDefault();
     var values = $(this).serializeArray();
     var len = values.length;
     for (var a = 0; a < len; a++) {
@@ -152,12 +155,39 @@ $("#stockUsed").submit(function () {
 
 //function to update values and write to sheet
 function update() {
-    
     gapi.client.sheets.spreadsheets.values.update({
         spreadsheetId: '1qnHMLUQRRWyQMMLWDyuKfRHcGVWMJzhNkorTnmzSbjk',
         range: 'forSite!A2:B14',
-        body: stamps
-    }).execute();
-    
-    
+        valueInputOption: 'RAW',
+        includeValuesInResponse: true,
+        values: [
+             [stamps[0][0], stamps[0][1]],
+            [stamps[1][0], stamps[1][1]],
+            [stamps[2][0], stamps[2][1]],
+            [stamps[3][0], stamps[3][1]],
+            [stamps[4][0], stamps[4][1]],
+            [stamps[5][0], stamps[5][1]],
+            [stamps[6][0], stamps[6][1]],
+            [stamps[7][0], stamps[7][1]],
+            [stamps[8][0], stamps[8][1]],
+            [stamps[9][0], stamps[9][1]],
+            [stamps[10][0], stamps[10][1]],
+            [stamps[11][0], stamps[11][1]],
+            [stamps[12][0], stamps[12][1]]
+        ]
+    }).then(function (response) {
+        stamps = [];
+        var range = response.result.updatedData;
+        console.log(range);
+        if (range.values.length > 0) {
+            for (var i = 0; i < range.values.length; i++) {
+                var name = range.values[i][0];
+                    var qty = range.values[i][1];
+                    document.getElementById(name).innerHTML = qty;
+                    stamps.push( [name , qty] );
+            }
+        }
+    }, function (reason) {
+        console.log('Error: ' + reason.result.error.message);
+        });
 }
