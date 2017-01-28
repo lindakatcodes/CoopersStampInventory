@@ -28,7 +28,7 @@
         </div>
         
         <div class="row status">
-            <div class="col-xs-12 col-md-12">
+            <div class="col-xs-12 col-sm-12">
                 <table class="table table-bordered stamps">
                     <thead>
                         <tr class="tblnames">
@@ -67,7 +67,7 @@
                 </table>
             </div>
             
-            <div class="col-xs-12 col-md-5 col-md-offset-1">
+            <div class="col-xs-12 col-sm-5 col-sm-offset-1">
                 <table class="table table-bordered extras">
                     <thead>
                         <tr class="tblnames">
@@ -92,7 +92,7 @@
                 </table>
             </div>
             
-            <div class="col-xs-12 col-md-5">
+            <div class="col-xs-12 col-sm-5">
                 <table class="table table-bordered inks">
                     <tr class="tblnames">
                         <th>Inks</th>
@@ -115,23 +115,26 @@
         </div>
         
         <div class="btnFlex">
-            <button class="btn btn-lg btn-success btnFlexChild" id="usedToggle" onclick="toggleFormOn('U')">Log Used Supplies</button>
-            <button class="btn btn-lg btn-info btnFlexChild" id="stockToggle" onclick="toggleFormOn('S')">Log Supply Stock</button>
+            <button class="btn btn-lg btn-success btnFlexChild" id="usedToggle" onclick="toggleFormOn('U')">Creation</button>
+            <button class="btn btn-lg btn-info btnFlexChild" id="stockToggle" onclick="toggleFormOn('S')">Restock</button>
         </div>
         
         <div class="used">
             <form class="form-inline" id="addUsed">
                 <div class="row buttons">
-                    <div class="col-xs-5 col-xs-offset-0 col-md-2 col-md-offset-3">
-                      <button type="button" class="btn btn-success btn-lg addBtn" onclick="addItem('U')">+ Add an Item</button>
+                    <div class="col-xs-4 col-xs-offset-0 col-sm-2 col-sm-offset-3">
+                      <button type="button" class="btn btn-success btn-lg addBtn" onclick="addItem('U')">+ Add Item</button>
                     </div>
-                    <div class="col-xs-4 col-xs-offset-1 col-md-2 col-md-offset-0">
+                    <div class="col-xs-4 col-xs-offset-1 col-sm-2 col-sm-offset-1">
                       <button type="submit" class="btn btn-lg btn-primary">Finished!</button>
+                    </div>
+                    <div class="col-xs-2 col-xs-offset-1 col-sm-2 col-sm-offset-2">
+                        <button type="button" class="btn btn-default btn-lg close" onclick="toggleFormOn('U')">Close</button>
                     </div>
                 </div>
                 <div id="itemU" class="itemGroup">
                     <div class="row">
-                    <div class="col-xs-6 col-xs-offset-0 col-md-2 col-md-offset-3">
+                    <div class="col-xs-5 col-xs-offset-0 col-sm-2 col-sm-offset-3">
                         <label class="sr-only" for="selection">Select Item</label>
                         <select class="form-control input-lg" name="uselect[0]">
                             <option>Choose:</option>
@@ -150,7 +153,7 @@
                             <option>gloves</option>
                         </select>
                     </div>
-                    <div class="col-xs-4 col-md-1">
+                    <div class="col-xs-4 col-sm-2 col-sm-offset-1">
                         <label class="sr-only" for="qtyUsed">Quantity Used</label>
                         <input type="number" class="form-control input-lg" name="uqty[0]" placeholder="Qty" value="">
                     </div>
@@ -162,16 +165,19 @@
         <div class="stock">
             <form class="form-inline" id="stockUsed">
                 <div class="row buttons">
-                    <div class="col-xs-5 col-xs-offset-0 col-md-2 col-md-offset-3">
-                      <button type="button" class="btn btn-success btn-lg addBtn" onclick="addItem('S')">+ Add an Item</button>
+                    <div class="col-xs-4 col-xs-offset-0 col-sm-2 col-sm-offset-3">
+                      <button type="button" class="btn btn-success btn-lg addBtn" onclick="addItem('S')">+ Add Item</button>
                     </div>
-                    <div class="col-xs-4 col-xs-offset-1 col-md-2 col-md-offset-0">
+                    <div class="col-xs-4 col-xs-offset-1 col-sm-2 col-sm-offset-1">
                       <button type="submit" class="btn btn-lg btn-primary">Finished!</button>
+                    </div>
+                    <div class="col-xs-2 col-xs-offset-1 col-sm-2 col-sm-offset-2">
+                        <button type="button" class="btn btn-default btn-lg close" onclick="toggleFormOn('S')">Close</button>
                     </div>
                 </div>
                 <div id="itemS" class="itemGroup">
                     <div class="row">
-                    <div class="col-xs-6 col-xs-offset-0 col-md-2 col-md-offset-3">
+                    <div class="col-xs-5 col-xs-offset-0 col-sm-2 col-sm-offset-3">
                         <label class="sr-only" for="selection">Select Item</label>
                         <select class="form-control input-lg" name="sselect[0]">
                             <option>Choose:</option>
@@ -190,7 +196,7 @@
                             <option>gloves</option>
                         </select>
                     </div>
-                    <div class="col-xs-4 col-md-1">
+                    <div class="col-xs-4 col-sm-2 col-sm-offset-1">
                         <label class="sr-only" for="qtyUsed">Quantity Used</label>
                         <input type="number" class="form-control input-lg" name="sqty[0]" placeholder="Qty" value="">
                     </div>
