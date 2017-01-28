@@ -195,3 +195,9 @@ function update() {
         console.log('Error: ' + reason.result.error.message);
         });
 }
+
+function toggleInks(type) {
+    var ele = document.getElementById(type);
+        $(ele).toggleClass("inksG");
+        $(ele).toggleClass("inksB");
+}

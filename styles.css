@@ -42,6 +42,20 @@ td
     padding: 5px;
 }
 
+.inksG {
+    color: black;
+}
+
+.inks :hover {
+    text-decoration: none;
+    color: black;
+}
+
+.inksB {
+    color: white;
+    background-color: red;
+}
+
 .itemGroup {
   padding: 5px;
 }
