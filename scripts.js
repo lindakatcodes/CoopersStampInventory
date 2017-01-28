@@ -131,6 +131,8 @@ $("#addUsed").submit(function (event) {
         a++;
     }
     update();
+    document.getElementById("addUsed").reset();
+    toggleFormOn('U');
 });
 
 //functionality for counting stocked items
@@ -151,6 +153,8 @@ $("#stockUsed").submit(function (event) {
         a++;
     }
     update();
+    document.getElementById("stockUsed").reset();
+    toggleFormOn('S');
 });
 
 //function to update values and write to sheet
