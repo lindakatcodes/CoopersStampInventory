@@ -6,7 +6,7 @@ var stamps = [];
 var counter = 0;
 
 //google authorization schtuff
-var CLIENT_ID = '894792189641-nchnp5fsr776ds0r0vbpojgbnmfvffb9.apps.googleusercontent.com';
+var CLIENT_ID = 'CLIENT>ID';
 
 var SCOPES = ["https://www.googleapis.com/auth/spreadsheets"];
 
@@ -61,8 +61,8 @@ function loadSheetsApi() {
 //actually get data from sheet and fill into display
 function getData() {
     gapi.client.sheets.spreadsheets.values.get({
-        spreadsheetId: '1qnHMLUQRRWyQMMLWDyuKfRHcGVWMJzhNkorTnmzSbjk',
-        range: 'forSite!A2:B14',
+        spreadsheetId: 'spreadsheetID',
+        range: 'range',
     }).then(function (response) {
         var range = response.result;
         if (range.values.length > 0) {
@@ -166,8 +166,8 @@ $("#stockUsed").submit(function (event) {
 //function to update values and write to sheet
 function update() {
     gapi.client.sheets.spreadsheets.values.update({
-        spreadsheetId: '1qnHMLUQRRWyQMMLWDyuKfRHcGVWMJzhNkorTnmzSbjk',
-        range: 'forSite!A2:B14',
+        spreadsheetId: 'spreadsheetID',
+        range: 'range',
         valueInputOption: 'RAW',
         includeValuesInResponse: true,
         values: [
