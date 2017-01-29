@@ -71,6 +71,7 @@ function getData() {
                     var qty = range.values[i][1];
                     document.getElementById(name).innerHTML = qty;
                     stamps.push( [name , qty] );
+                    format(name, qty);
             }
         }
     }, function (response) {
@@ -110,6 +111,11 @@ function toggleFormOn(type) {
             $('.used').toggle("slow");
         } else if (type === "S") {
             $('.stock').toggle("slow");
+        }
+        if (counter > 0) {
+            for (var i = counter; i > 0; i--) {
+                $('.rmv').trigger('click');
+            }
         }
 }
 
@@ -182,13 +188,13 @@ function update() {
     }).then(function (response) {
         stamps = [];
         var range = response.result.updatedData;
-        console.log(range);
         if (range.values.length > 0) {
             for (var i = 0; i < range.values.length; i++) {
                 var name = range.values[i][0];
                     var qty = range.values[i][1];
                     document.getElementById(name).innerHTML = qty;
                     stamps.push( [name , qty] );
+                    format(name, qty);
             }
         }
     }, function (reason) {
@@ -196,8 +202,60 @@ function update() {
         });
 }
 
+//allows toggle of ink cells to show if need to order or not
 function toggleInks(type) {
     var ele = document.getElementById(type);
-        $(ele).toggleClass("inksG");
-        $(ele).toggleClass("inksB");
+    if (ele.innerHTML == "Good") {
+        ele.innerHTML = "Low";
+        ele.style.backgroundColor = "red";
+        ele.style.color = "white";
+    } else if (ele.innerHTML == "Low") {
+         ele.innerHTML = "Good";
+        ele.style.backgroundColor = "white";
+        ele.style.color = "black";
+    }
+}
+
+//conditional formatting if values are too low
+function format(name, val) {
+    var ele = document.getElementById(name);
+    switch(name) {
+        case "db1444":
+        case "db2273":
+        case "db3679":
+        case "m1444":
+        case "m2273":
+        case "m3679":
+            if (val < 10) {
+                ele.style.backgroundColor = "red";
+                ele.style.color = "white";
+            } else {
+                ele.style.backgroundColor = "white";
+                ele.style.color = "black";
+            }
+            break;
+        case "db1854":
+        case "db2264":
+        case "m1854":
+        case "m2264":
+            if (val < 15) {
+                ele.style.backgroundColor = "red";
+                ele.style.color = "white";
+            } else {
+                ele.style.backgroundColor = "white";
+                ele.style.color = "black";
+            }
+            break;
+        case "vellum":
+        case "trans":
+        case "gloves":
+            if (val < 25) {
+                ele.style.backgroundColor = "red";
+                ele.style.color = "white";
+            } else {
+                ele.style.backgroundColor = "white";
+                ele.style.color = "black";
+            }
+            break;
+    }
 }

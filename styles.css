@@ -13,9 +13,8 @@ h2
 .table
 {
     margin: auto;
-    width: 90%;
     margin-bottom: 20px;
-    border: 2px solid black;
+    border: 2px solid darkgrey;
 }
 
 .tblnames th
@@ -23,7 +22,6 @@ h2
     text-align: center;
     vertical-align: middle;
     font-size: 20px;
-    padding: 5px;
 }
 
 th
@@ -39,21 +37,6 @@ td
     text-align: center;
     vertical-align: middle;
     font-size: 18px;
-    padding: 5px;
-}
-
-.inksG {
-    color: black;
-}
-
-.inks :hover {
-    text-decoration: none;
-    color: black;
-}
-
-.inksB {
-    color: white;
-    background-color: red;
 }
 
 .itemGroup {
@@ -104,5 +87,5 @@ td
 
 footer
 {
-    text-align: right;
+    text-align: center;
 }
