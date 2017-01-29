@@ -5,7 +5,7 @@ I'm using this to track stamps at my store, so the variable names and main array
 
 The main parts I removed that you'd actually need to get for your indidivdual Google Spreadsheet are the following:
 - Client ID: You get this from the Google Developers Console. I followed the JavaScript tutorial here (https://developers.google.com/sheets/api/quickstart/js) and it links you to a wizard and walkthrough on setting up your program and authorization. The Client ID will show in the OAuth section.
-- Spreadsheet ID: This deals with the spreadsheet you want to access. In the URL for that sheet, it will show something like https://docs.google.com/spreadsheets/d/somecrazylongstring/otherdata. That crazy long string is your spreadsheet ID, which you'll copy into the getData and update sections.
+- Spreadsheet ID: This deals with the spreadsheet you want to access. In the URL for that sheet, it will show something like //docs.google.com/spreadsheets/d/somecrazylongstring/otherdata. That crazy long string is your spreadsheet ID, which you'll copy into the getData and update sections.
 - Range: This is the actual range you want to get and update. It's worth noting that mine only uses one range. You can update and access multiple ranges if you need to. This uses A1 notation, so you'd input something like 'sheet1!A1:B5' in the getData and update functions.
 
 Some links that I found really helpful while working on this:
