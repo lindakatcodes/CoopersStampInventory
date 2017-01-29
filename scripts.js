@@ -6,7 +6,7 @@ var stamps = [];
 var counter = 0;
 
 //google authorization schtuff
-var CLIENT_ID = 'CLIENT>ID';
+var CLIENT_ID = 'CLIENT_ID';
 
 var SCOPES = ["https://www.googleapis.com/auth/spreadsheets"];
 
