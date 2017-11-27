@@ -1,5 +1,7 @@
 Simple inventory tracker utilizing a Google Spreadsheet as the database/storage. Written in HTML, CSS, and JavaScript.
 
+![Project in Action](https://res.cloudinary.com/lindakatcodes/image/upload/v1509818893/portfolioProjects/Gifs/stampGif_hs3dqs.gif)
+
 If you like this project, or have ever wanted to do this but couldn't figure it out with JavaScript, please feel free to fork this and modify it for your needs!
 I'm using this to track stamps at my store, so the variable names and main array are all labeled for my specific needs. They should be easy enough to change out for whatever you might want to track. Again this is a super simple, just tracking item name and quantity page. It may not fit your needs. But if it helps you get started and grow, then please go for it and share it with me when you're done!
 
