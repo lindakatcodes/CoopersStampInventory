@@ -1,19 +1,35 @@
-// Require express for routing
-const express = require('express')
+// Require express for routing, mongoose for mongo handling
+const express = require('express');
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+dotenv.config();
+const port = process.env.PORT;
+const mongodbUrl = process.env.MONGODB_URL;
+
+// import router files here
+
+// connect mongoose to mongodb, set options
+mongoose.connect(mongodbUrl, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+});
+
 // app actually starts the express router
-const app = express()
+const app = express();
 
-// .get 'gets' a route, then has a function that tells the browser what to do when that route is hit
-app.get('/', function(req, res) {
-    // right now, it's sending the main index file
-    res.sendFile(__dirname + '/views/index.html')
-})
-
-// .use will mount middleware functions to express - this one tells express to server the public folder to all routes
+// .use will mount middleware functions to express
+// static will direct express to use public folder for static pages
+// json will assist express in processing json files
 app.use(express.static(__dirname + '/public/'))
+app.use(express.json());
+
+// set app to use router files here
 
 // set the app to listen to a particular port
-app.listen(process.env.PORT || 3000 );
+app.listen(port || 3000, () => {
+    console.log(`Server is up on port ${port}`)
+})
 
 // export the app so node can see and use it
 module.exports = app;
