@@ -1,35 +1,21 @@
 <!doctypehtml>
-<head>
+
+    <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <!-- Bootstrap -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-        <!-- Stylesheet -->
-        <link href="./styles.css" type="text/css" rel="stylesheet">
-</head>
-<body>
-    <div class="container-fluid">
-        <div id="authorize-div">
-            <span>Authorize access to Google Sheets API</span>
-            <!--Button for the user to click to initiate auth sequence -->
-            <button id="authorize-button" onclick="handleAuthClick(event)">
-                Authorize
-            </button>
-        </div>
-    
-        <div class="row title">
-            <h1>Self-Inking Stamp Inventory</h1>
-        </div>
-        
-        <div class="row">
-            <h2 class="header">Current Inventory</h2>
-        </div>
-        
-        <div class="row status">
-            <div class="col-xs-12 col-sm-12">
-                <table class="table table-bordered stamps">
+        <link href="/styles.css" type="text/css" rel="stylesheet">
+    </head>
+
+    <body>
+        <main>
+            <header>
+                <h1 class="title">Self-Inking Stamp Inventory</h1>
+                <h2 class="subtitle">Current Inventory</h2>
+            </header>
+
+            <section class="tables">
+                <table class="stamps">
                     <thead>
                         <tr class="tblnames">
                             <th>Size</th>
@@ -65,10 +51,8 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
-            
-            <div class="col-xs-12 col-sm-5 col-sm-offset-1">
-                <table class="table table-bordered extras">
+
+                <table class="extras table-small">
                     <thead>
                         <tr class="tblnames">
                             <th>Supplies</th>
@@ -90,30 +74,28 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
-            
-            <div class="col-xs-12 col-sm-5">
-                <table class="table table-bordered inks">
+
+                <table class="inks table-small">
                     <tr class="tblnames">
                         <th>Inks</th>
                         <th>Status</th>
                     </tr>
                     <tr>
                         <th>Black</th>
-                        <td id="black" onclick="toggleInks('black')">Good</td>
+                        <td id="black">Good</td>
                     </tr>
                     <tr>
                         <th>Red</th>
-                        <td id="red" onclick="toggleInks('red')">Good</td>
+                        <td id="red">Good</td>
                     </tr>
                     <tr>
                         <th>Blue</th>
-                        <td id="blue" onclick="toggleInks('blue')">Good</td>
+                        <td id="blue">Good</td>
                     </tr>
                 </table>
-            </div>
-        </div>
-        
+            </section>
+
+            <!-- old buttons and forms - planning to remove
         <div class="btnFlex">
             <button class="btn btn-lg btn-success btnFlexChild" id="usedToggle" onclick="toggleFormOn('U')">Creation</button>
             <button class="btn btn-lg btn-info btnFlexChild" id="stockToggle" onclick="toggleFormOn('S')">Restock</button>
@@ -160,7 +142,7 @@
                     </div>
                 </div>
             </form>
-        </div> <!--end of used div -->
+        </div> <!--end of used div
         
         <div class="stock">
             <form class="form-inline" id="stockUsed">
@@ -204,21 +186,18 @@
                 </div>
             </form>
         </div>
-        
-        
-        
-    </div> <!--closing container tag -->
-    
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script src="./scripts.js" type="text/javascript"></script>
-    <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
-    <script src="https://use.fontawesome.com/d7a86c5f7b.js"></script>
-</body>
-<br><br>
-<footer>
-    Created by Linda Thompson, 2017
-    <br>
-    For use in Cooper's Copies and Printing, Denton, TX
-</footer>
-</html>
+    -->
+
+        </main>
+        <!--closing container tag -->
+
+        <script src="/scripts.js" type="text/javascript"></script>
+    </body>
+    <br><br>
+    <footer>
+        Created by Linda Thompson, 2017 * Updated in 2019
+        <br>
+        For use by Cooper's Copies and Printing, Denton, TX
+    </footer>
+
+    </html>

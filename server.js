@@ -7,13 +7,18 @@ const port = process.env.PORT;
 const mongodbUrl = process.env.MONGODB_URL;
 
 // import router files here
+const routes = require('./routes');
 
 // connect mongoose to mongodb, set options
 mongoose.connect(mongodbUrl, {
     useNewUrlParser: true,
     useCreateIndex: true,
-    useFindAndModify: false
-});
+    useFindAndModify: false,
+    useUnifiedTopology: true
+}).then(
+    () => console.log('Database connected!'),
+    (err) => console.log('Connection error: ', err) 
+);
 
 // app actually starts the express router
 const app = express();
@@ -25,6 +30,7 @@ app.use(express.static(__dirname + '/public/'))
 app.use(express.json());
 
 // set app to use router files here
+app.use(routes);
 
 // set the app to listen to a particular port
 app.listen(port || 3000, () => {
