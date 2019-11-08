@@ -3,17 +3,24 @@ const router = new express.Router();
 const Parts = require('./models');
 
 // .get 'gets' a route, then has a function that tells the browser what to do when that route is hit
-router.get('/', async (req, res) => {
+router.get('/', (req, res) => {
     try {
-        const data = await Parts.find();
-        console.log(data);
-        res.sendFile(__dirname + '/index.html');
+        res.send(data).sendFile(__dirname + '/index.html');
     }
     catch (e) {
         res.status(500).send();
     }
-    
 });
+
+router.get('/getdata', async (req, res) => {
+    try {
+        
+        res.send(await Parts.find());
+    }
+    catch (e) {
+        res.send(e);
+    }
+})
 
 
 

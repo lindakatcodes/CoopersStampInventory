@@ -11,12 +11,13 @@ const routes = require('./routes');
 
 // connect mongoose to mongodb, set options
 mongoose.connect(mongodbUrl, {
+    dbName: 'stampinv',
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
     useUnifiedTopology: true
 }).then(
-    () => console.log('Database connected!'),
+    () => console.log('Database connected! ' + mongoose.connection.name),
     (err) => console.log('Connection error: ', err) 
 );
 
