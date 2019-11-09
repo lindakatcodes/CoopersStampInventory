@@ -5,7 +5,7 @@ const Parts = require('./models');
 // .get 'gets' a route, then has a function that tells the browser what to do when that route is hit
 router.get('/', (req, res) => {
     try {
-        res.send(data).sendFile(__dirname + '/index.html');
+        res.sendFile(__dirname + '/index.html');
     }
     catch (e) {
         res.status(500).send();
@@ -14,7 +14,6 @@ router.get('/', (req, res) => {
 
 router.get('/getdata', async (req, res) => {
     try {
-        
         res.send(await Parts.find());
     }
     catch (e) {
