@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 main {
     display: flex;
     flex-flow: column;
@@ -6,35 +10,64 @@ main {
 
 header {
     text-align: center;
+    background: rgba(44, 157, 165, 0.86);
+    margin: -8px;
+}
+
+.tables {
+    display: grid;
+    grid: 'title title'
+          'parts parts'
+          'acc inks';
+    grid-template-columns: 50% 50%;
+}
+
+#stamps {
+    grid-area: parts;
+}
+
+#extras {
+    grid-area: acc;
+}
+
+#inks {
+    grid-area: inks;
+}
+
+.subtitle {
+    text-align: center;
+    grid-area: title;
+    margin: 7% auto 4%;
 }
 
 table {
     table-layout: fixed;
     border-collapse: collapse;
-    width: 90%;
-    margin: auto;
-    margin-bottom: 20px;
-    border: 2px solid darkgrey;
-}
-
-.table-small {
-    width: 50%;
+    width: 100%;
+    margin: 0 auto 4%;
+    border: 2px solid rgba(36, 45, 65, 0.79);
 }
 
 th, td {
-    border: 1px solid lightgray;
+    border: 1px solid rgba(93, 115, 116, 0.79);
     padding: 5px;
     vertical-align: middle;
     text-align: center;
     font-size: 16px;
 }
 
+.tblnames {
+    background: rgba(93, 115, 116, 0.79);
+    border-bottom: 2px solid rgba(36, 45, 65, 0.79);
+}
+
 .tblnames th {
-    font-size: 20px;
+    font-size: 19px;
+    border-right: 2px solid rgba(36, 45, 65, 0.79);
 }
 
 td {
-    font-size: 18px;
+    font-size: 17px;
 }
 
 footer {

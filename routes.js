@@ -2,7 +2,7 @@ const express = require('express');
 const router = new express.Router();
 const Parts = require('./models');
 
-// .get 'gets' a route, then has a function that tells the browser what to do when that route is hit
+// when the main page is loaded, pull in the index page
 router.get('/', (req, res) => {
     try {
         res.sendFile(__dirname + '/index.html');
@@ -12,6 +12,7 @@ router.get('/', (req, res) => {
     }
 });
 
+// route for initial data pull
 router.get('/getdata', async (req, res) => {
     try {
         res.send(await Parts.find());

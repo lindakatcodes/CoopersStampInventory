@@ -4,7 +4,7 @@
   "description": "Custom small inventory tracking site",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js -e js,html,css"
   },
   "repository": {
     "type": "git",

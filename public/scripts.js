@@ -1,7 +1,7 @@
 const stampTable = document.getElementById('stamps');
 const accTable = document.getElementById('extras');
-// const initData = [];
 
+// initial data pull, when page is first loaded
 const data = fetch('http://localhost:8080/getdata')
 .then(response => response.json())
 .then(res => {
@@ -13,12 +13,4 @@ const data = fetch('http://localhost:8080/getdata')
         const nameDiv = document.getElementById(name);
         nameDiv.textContent = initData[i].qty;
     }
-
-    // for (let i = 1, row; row = stampTable.rows[i]; i++) {
-        
-    //     for (let j = 1, col; col = row.cells[j]; j++) {
-    //       let currId = col.id;
-          
-    //     }  
-    //  }
 })
