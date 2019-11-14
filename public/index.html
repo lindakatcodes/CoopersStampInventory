@@ -15,6 +15,20 @@
             
             <section class="tables">
                 <h2 class="subtitle">Current Inventory</h2>
+
+                <dialog class="updateForm">
+                    <h2 class="subtitle">Update Quantity</h2>
+                    <form method="dialog">
+                        <input class="selectedValue">
+                        <button class="adjust" id="minfive" value="-5">- 5</button>
+                        <button class="adjust" id="minone" value="-1">- 1</button>
+                        <button class="adjust" id="addone" value="1">+ 1</button>
+                        <button class="adjust" id="addfive" value="5">+ 5</button>
+                        <button type="submit">Send Update!</button>
+                        <button id="close">X</button>
+                    </form>
+                </dialog>
+
                 <table id="stamps">
                     <thead>
                         <tr class="tblnames">
