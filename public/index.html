@@ -1,115 +1,102 @@
 <!doctypehtml>
 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="/styles.css" type="text/css" rel="stylesheet">
-    </head>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/styles.css" type="text/css" rel="stylesheet">
+  </head>
 
-    <body>
-        <main>
-            <header>
-                <h1 class="title">Self-Inking Stamp Inventory</h1>
-            </header>
-            
-            <section class="tables">
-                <h2 class="subtitle">Current Inventory</h2>
+  <body>
+    <main>
+      <header>
+        <h1 class="title">Self-Inking Stamp Inventory</h1>
+      </header>
 
-                <dialog class="updateForm">
-                    <h2 class="subtitle">Update Quantity</h2>
-                    <form method="dialog">
-                        <input class="selectedValue">
-                        <button class="adjust" id="minfive" value="-5">- 5</button>
-                        <button class="adjust" id="minone" value="-1">- 1</button>
-                        <button class="adjust" id="addone" value="1">+ 1</button>
-                        <button class="adjust" id="addfive" value="5">+ 5</button>
-                        <button type="submit">Send Update!</button>
-                        <button id="close">X</button>
-                    </form>
-                </dialog>
+      <section class="tables">
+        <h2 class="subtitle">Current Inventory</h2>
 
-                <table id="stamps">
-                    <thead>
-                        <tr class="tblnames">
-                            <th>Size</th>
-                            <th>Die Box Qty.</th>
-                            <th>Mount Qty.</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>PSI 1444</th>
-                            <td id="db1444"> </td>
-                            <td id="m1444"> </td>
-                        </tr>
-                        <tr>
-                            <th>PSI 1854</th>
-                            <td id="db1854"> </td>
-                            <td id="m1854"> </td>
-                        </tr>
-                        <tr>
-                            <th>PSI 2264</th>
-                            <td id="db2264"> </td>
-                            <td id="m2264"> </td>
-                        </tr>
-                        <tr>
-                            <th>PSI 2773</th>
-                            <td id="db2773"> </td>
-                            <td id="m2773"> </td>
-                        </tr>
-                        <tr>
-                            <th>PSI 3679</th>
-                            <td id="db3679"> </td>
-                            <td id="m3679"> </td>
-                        </tr>
-                    </tbody>
-                </table>
+        <table id="stamps">
+          <thead>
+            <tr class="tblnames">
+              <th>Size</th>
+              <th>Die Box Qty.</th>
+              <th>Mount Qty.</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>PSI 1444</th>
+              <td id="db1444"> </td>
+              <td id="m1444"> </td>
+            </tr>
+            <tr>
+              <th>PSI 1854</th>
+              <td id="db1854"> </td>
+              <td id="m1854"> </td>
+            </tr>
+            <tr>
+              <th>PSI 2264</th>
+              <td id="db2264"> </td>
+              <td id="m2264"> </td>
+            </tr>
+            <tr>
+              <th>PSI 2773</th>
+              <td id="db2773"> </td>
+              <td id="m2773"> </td>
+            </tr>
+            <tr>
+              <th>PSI 3679</th>
+              <td id="db3679"> </td>
+              <td id="m3679"> </td>
+            </tr>
+          </tbody>
+        </table>
 
-                <table id="extras" class="table-small">
-                    <thead>
-                        <tr class="tblnames">
-                            <th>Supplies</th>
-                            <th>Qty.</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>Vellum</th>
-                            <td id="vellum"> </td>
-                        </tr>
-                        <tr>
-                            <th>Trans.</th>
-                            <td id="trans"> </td>
-                        </tr>
-                        <tr>
-                            <th>Gloves</th>
-                            <td id="gloves"> </td>
-                        </tr>
-                    </tbody>
-                </table>
+        <table id="extras" class="table-small">
+          <thead>
+            <tr class="tblnames">
+              <th>Supplies</th>
+              <th>Qty.</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Vellum</th>
+              <td id="vellum"> </td>
+            </tr>
+            <tr>
+              <th>Trans.</th>
+              <td id="trans"> </td>
+            </tr>
+            <tr>
+              <th>Gloves</th>
+              <td id="gloves"> </td>
+            </tr>
+          </tbody>
+        </table>
 
-                <table id="inks" class="table-small">
-                    <tr class="tblnames">
-                        <th>Inks</th>
-                        <th>Status</th>
-                    </tr>
-                    <tr>
-                        <th>Black</th>
-                        <td id="black">Good</td>
-                    </tr>
-                    <tr>
-                        <th>Red</th>
-                        <td id="red">Good</td>
-                    </tr>
-                    <tr>
-                        <th>Blue</th>
-                        <td id="blue">Good</td>
-                    </tr>
-                </table>
-            </section>
+        <table id="inks" class="table-small">
+          <tr class="tblnames">
+            <th>Inks</th>
+            <th>Status</th>
+          </tr>
+          <tr>
+            <th>Black</th>
+            <td id="black">Good</td>
+          </tr>
+          <tr>
+            <th>Red</th>
+            <td id="red">Good</td>
+          </tr>
+          <tr>
+            <th>Blue</th>
+            <td id="blue">Good</td>
+          </tr>
+        </table>
+      </section>
 
-            <!-- old buttons and forms - planning to remove
+      <!-- old buttons and forms - planning to remove
         <div class="btnFlex">
             <button class="btn btn-lg btn-success btnFlexChild" id="usedToggle" onclick="toggleFormOn('U')">Creation</button>
             <button class="btn btn-lg btn-info btnFlexChild" id="stockToggle" onclick="toggleFormOn('S')">Restock</button>
@@ -202,16 +189,36 @@
         </div>
     -->
 
-        </main>
-        <!--closing container tag -->
 
-        <script src="/scripts.js" type="text/javascript"></script>
-    </body>
-    <br><br>
-    <footer>
-        Created by Linda Thompson, 2017 * Updated in 2019
-        <br>
-        For use by Cooper's Copies and Printing, Denton, TX
-    </footer>
+      <div class="dialogForeground closed" role="dialog" aria-hidden="true" aria-labelledby="subtitle">
+        <h2 class="dialogTitle">Update Quantity</h2>
+        <button id="close">X</button>
+        <form class="updateForm">
+          <label for="value">Number Available</label>
+          <input class="selectedValue" type="text" name="value">
+          <input type="radio" name="adjust" id="minfive" value="-5">
+          <label for="minfive">-5</label>
+          <input type="radio" name="adjust" id="minone" value="-1">
+          <label for="minone">-1</label>
+          <input type="radio" name="adjust" id="addone" value="1">
+          <label for="addone">+1</label>
+          <input type="radio" name="adjust" id="addfive" value="5">
+          <label for="addfive">+5</label>
+          <button type="submit">Send Update!</button>
+        </form>
+      </div>
+      <div class="dialogBackground closed" tabindex="-1"></div>
 
-    </html>
+    </main>
+    <!--closing container tag -->
+
+    <script src="/scripts.js" type="text/javascript"></script>
+  </body>
+  <br><br>
+  <footer>
+    Created by Linda Thompson, 2017 * Updated in 2019
+    <br>
+    For use by Cooper's Copies and Printing, Denton, TX
+  </footer>
+
+  </html>

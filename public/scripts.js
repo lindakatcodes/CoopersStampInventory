@@ -1,7 +1,8 @@
 const stampTable = document.getElementById('stamps');
 const accTable = document.getElementById('extras');
 const inkTable = document.getElementById('inks');
-const dialog = document.querySelector('.updateForm');
+const dialog = document.querySelector('.dialogForeground');
+const dialogBg = document.querySelector('.dialogBackground');
 
 // initial data pull, when page is first loaded
 const data = fetch('http://localhost:8080/getdata')
@@ -22,39 +23,17 @@ const td = document.querySelectorAll('td');
 
 td.forEach(ele => {
     ele.addEventListener('click', function (e) {
-        dialog.showModal();
-        e.preventDefault();
-
-        let value = e.target.innerText;
-        dialog.querySelector('.selectedValue').value = value;
-        
-        const adjusts = dialog.querySelectorAll('.adjust');
-        
-        adjusts.forEach(button => {
-            // for some reason, this value being passed is the click event for the button, and not the value from above?!?!
-            button.addEventListener('click', function (value) {
-                e.preventDefault();
-                let newValue = parseInt(value, 10);
-                console.log(value, newValue);
-                switch (button.id) {
-                    case 'minfive':
-                        newValue -= 5;
-                        dialog.querySelector('.selectedValue').value = newValue;
-                        break;
-                    case 'minone':
-                        newValue -= 1;
-                        dialog.querySelector('.selectedValue').value = newValue;
-                        break;
-                    case 'addone':
-                        newValue += 1;
-                        dialog.querySelector('.selectedValue').value = newValue;
-                        break;
-                    case 'addfive':
-                        newValue += 5;
-                        dialog.querySelector('.selectedValue').value = newValue;
-                        break;
-                }
-            })
-        })
+      dialog.setAttribute('aria-hidden', false);
+      dialog.classList.toggle('closed');
+      dialogBg.classList.toggle('closed');
     });
 });
+
+// dialog settings / functionality
+const closeDialog = document.querySelector('#close');
+closeDialog.addEventListener('click', function (e) {
+  e.preventDefault();
+  dialog.setAttribute('aria-hidden', true);
+  dialog.classList.toggle('closed');
+  dialogBg.classList.toggle('closed');
+})
