@@ -26,6 +26,7 @@ td.forEach(ele => {
       dialog.setAttribute('aria-hidden', false);
       dialog.classList.toggle('closed');
       dialogBg.classList.toggle('closed');
+      dialog.querySelector('.selectedValue').value = parseInt(e.target.textContent, 10);
     });
 });
 

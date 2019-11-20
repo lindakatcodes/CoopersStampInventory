@@ -190,24 +190,28 @@
     -->
 
 
-      <div class="dialogForeground closed" role="dialog" aria-hidden="true" aria-labelledby="subtitle">
+      <div class="dialogForeground" role="dialog" aria-hidden="true" aria-labelledby="subtitle">
         <h2 class="dialogTitle">Update Quantity</h2>
-        <button id="close">X</button>
-        <form class="updateForm">
-          <label for="value">Number Available</label>
-          <input class="selectedValue" type="text" name="value">
-          <input type="radio" name="adjust" id="minfive" value="-5">
-          <label for="minfive">-5</label>
-          <input type="radio" name="adjust" id="minone" value="-1">
-          <label for="minone">-1</label>
-          <input type="radio" name="adjust" id="addone" value="1">
-          <label for="addone">+1</label>
-          <input type="radio" name="adjust" id="addfive" value="5">
-          <label for="addfive">+5</label>
-          <button type="submit">Send Update!</button>
-        </form>
+        <button id="close">Close</button>
+        <div class="dialogForm">
+          <form class="updateForm">
+            <label for="value">Number Available</label>
+            <input class="selectedValue" type="text" name="value">
+            <div class="radios">
+              <input type="radio" name="adjust" class="adjusters" id="minfive" value="-5">
+              <label for="minfive">-5</label>
+              <input type="radio" name="adjust" class="adjusters" id="minone" value="-1">
+              <label for="minone">-1</label>
+              <input type="radio" name="adjust" class="adjusters" id="addone" value="1">
+              <label for="addone">+1</label>
+              <input type="radio" name="adjust" class="adjusters" id="addfive" value="5">
+              <label for="addfive">+5</label>
+            </div>  
+            <button type="submit" class="sendButton">Send Update!</button>
+          </form>
       </div>
-      <div class="dialogBackground closed" tabindex="-1"></div>
+      </div>
+      <div class="dialogBackground" tabindex="-1"></div>
 
     </main>
     <!--closing container tag -->
