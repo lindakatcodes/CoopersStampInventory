@@ -34,16 +34,23 @@ td.forEach(ele => {
       valueInput.focus();
       // call the function to listen for the esc key press
       escModal();
+      // handle adjustment button clicks/presses
+      adjustmentButtons(e);
       // listen for the key presses - if tab, call function to manage tab trapping; if space or enter, call function to manage adjustment buttons
       dialog.addEventListener('keydown', (e) => {
         if (e.keyCode === 9) {
           trapTab(e);
         }
-        // call function to prevent event default while on adjustment keys
-        if (e.keyCode === 13 || e.keyCode === 32) {
-          adjustmentButtons(e);
-        }
       });
+      // on submit button click, send updated value to db & refresh cell
+      const sendUpdate = document.querySelector('.sendButton');
+      const holderName = e.target.id;
+      const updatedValue = valueInput.value;
+      sendUpdate.addEventListener('click', () => {
+        fetch(`http://localhost:8080/parts/${holderName}`)
+          .then(response => response.json())
+          .then(result => console.log(result));
+      })
     });
 });
 
@@ -90,11 +97,28 @@ function trapTab(evt) {
   }
 }
 
-// adjustment keys - prevent default for space and enter presses
-function adjustButtons(evt) {
+// adjustment keys - change input value based on the value of which button is pressed
+function adjustmentButtons(evt) {
   const buttonsToCheck = document.querySelectorAll('.adjusters');
-  const currButton = document.activeElement;
-  if (buttonsToCheck.contains(currButton)) {
-    evt.preventDefault();
+
+  buttonsToCheck.forEach(button => {
+    const amt = button.value;
+    
+    button.addEventListener('click', () => {
+      let valueText = document.querySelector('.selectedValue');
+      let currvalue = valueText.value;
+      let newvalue = updateValue(parseInt(currvalue, 10), parseInt(amt, 10));
+      valueText.value = newvalue;
+      valueText.focus();
+    })
+  })
+}
+
+// get what the updated value should be, based on button press
+function updateValue(curr, change) {
+  let result = curr + change;
+  if (result <= 0) {
+    return 0;
   }
+  return result;
 }

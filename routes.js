@@ -22,7 +22,17 @@ router.get('/getdata', async (req, res) => {
     }
 })
 
-
+// route to update values
+router.get('/parts/:id', async (req, res) => {
+  const update = Object.keys(req.body);
+  try {
+    const set = await Parts.findOne({name: req.params.id});
+    console.log(set, update);
+  }
+  catch (e) {
+    console.log(e);
+  }
+})
 
 
 // export the router for use in our main app
