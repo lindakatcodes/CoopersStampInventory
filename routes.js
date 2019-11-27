@@ -23,11 +23,13 @@ router.get('/getdata', async (req, res) => {
 })
 
 // route to update values
-router.get('/parts/:id', async (req, res) => {
-  const update = Object.keys(req.body);
+router.patch('/parts/:id', async (req, res) => {
+  const update = req.body;
   try {
     const set = await Parts.findOne({name: req.params.id});
-    console.log(set, update);
+    set.qty = parseInt(update.qty, 10);
+    await set.save();
+    res.send(set);
   }
   catch (e) {
     console.log(e);

@@ -35,7 +35,7 @@ td.forEach(ele => {
       // call the function to listen for the esc key press
       escModal();
       // handle adjustment button clicks/presses
-      adjustmentButtons(e);
+      adjustmentButtons();
       // listen for the key presses - if tab, call function to manage tab trapping; if space or enter, call function to manage adjustment buttons
       dialog.addEventListener('keydown', (e) => {
         if (e.keyCode === 9) {
@@ -45,11 +45,28 @@ td.forEach(ele => {
       // on submit button click, send updated value to db & refresh cell
       const sendUpdate = document.querySelector('.sendButton');
       const holderName = e.target.id;
-      const updatedValue = valueInput.value;
       sendUpdate.addEventListener('click', () => {
-        fetch(`http://localhost:8080/parts/${holderName}`)
-          .then(response => response.json())
-          .then(result => console.log(result));
+        const updatedValue = valueInput.value;
+        const data = {
+          qty: updatedValue
+        };
+
+        fetch(`http://localhost:8080/parts/${holderName}`, {
+          method: 'PATCH',
+          body: JSON.stringify(data),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(response => response.json())
+          .then((res) => {
+            const updatedName = res.name;
+            const updatedValue = res.qty;
+            const tdToUpdate = document.getElementById(updatedName);
+            tdToUpdate.textContent = updatedValue;
+            console.log('data sent');
+          });
+          closeModal(e);
       })
     });
 });
@@ -98,7 +115,7 @@ function trapTab(evt) {
 }
 
 // adjustment keys - change input value based on the value of which button is pressed
-function adjustmentButtons(evt) {
+function adjustmentButtons() {
   const buttonsToCheck = document.querySelectorAll('.adjusters');
 
   buttonsToCheck.forEach(button => {
@@ -109,13 +126,13 @@ function adjustmentButtons(evt) {
       let currvalue = valueText.value;
       let newvalue = updateValue(parseInt(currvalue, 10), parseInt(amt, 10));
       valueText.value = newvalue;
-      valueText.focus();
     })
   })
 }
 
 // get what the updated value should be, based on button press
 function updateValue(curr, change) {
+  console.log(curr, change);
   let result = curr + change;
   if (result <= 0) {
     return 0;
