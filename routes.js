@@ -29,6 +29,7 @@ router.patch('/parts/:id', async (req, res) => {
     const set = await Parts.findOne({name: req.params.id});
     set.qty = parseInt(update.qty, 10);
     await set.save();
+    console.log('data update saved');
     res.send(set);
   }
   catch (e) {
