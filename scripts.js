@@ -6,7 +6,7 @@ var stamps = [];
 var counter = 0;
 
 //google authorization schtuff
-var CLIENT_ID = 'client_id';
+var CLIENT_ID = process.env.CLIENT_ID;
 
 var SCOPES = ["https://www.googleapis.com/auth/spreadsheets"];
 
@@ -61,8 +61,8 @@ function loadSheetsApi() {
 //actually get data from sheet and fill into display
 function getData() {
     gapi.client.sheets.spreadsheets.values.get({
-        spreadsheetId: 'spreadsheetid',
-        range: 'range',
+        spreadsheetId: process.env.SPREADSHEET_ID,
+        range: process.env.RANGE,
     }).then(function (response) {
         var range = response.result;
         if (range.values.length > 0) {
@@ -166,8 +166,8 @@ $("#stockUsed").submit(function (event) {
 //function to update values and write to sheet
 function update() {
     gapi.client.sheets.spreadsheets.values.update({
-        spreadsheetId: 'spreadsheetid',
-        range: 'range',
+        spreadsheetId: process.env.SPREADSHEET_ID,
+        range: process.env.RANGE,
         valueInputOption: 'RAW',
         includeValuesInResponse: true,
         values: [
